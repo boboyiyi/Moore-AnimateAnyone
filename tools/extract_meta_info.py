@@ -34,4 +34,5 @@ for video_mp4_path in video_mp4_paths:
     kps_path = os.path.join(pose_dir, relative_video_name)
     meta_infos.append({"video_path": video_mp4_path, "kps_path": kps_path})
 
+os.makedirs('./data', exist_ok=True)
 json.dump(meta_infos, open(f"./data/{args.meta_info_name}_meta.json", "w"))

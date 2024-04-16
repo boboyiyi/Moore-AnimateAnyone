@@ -144,10 +144,18 @@ Extract keypoints from raw videos:
 python tools/extract_dwpose_from_vid.py --video_root /path/to/your/video_dir
 ```
 
+
 Extract the meta info of dataset:
 
 ```shell
 python tools/extract_meta_info.py --root_path /path/to/your/video_dir --dataset_name anyone 
+```
+
+e.g. Process UBC Fashion Video Dataset
+```shell
+CUDA_VISIBLE_DEVICES=0,1 nohup python tools/extract_dwpose_from_vid.py --video_root /home/ubuntu/work/git/avatar/character_animation/UBC_fashion_video_dataset/train -j 2 > ubc_train_pose.log 2>&1 &
+CUDA_VISIBLE_DEVICES=0,1 nohup python tools/extract_dwpose_from_vid.py --video_root /home/ubuntu/work/git/avatar/character_animation/UBC_fashion_video_dataset/test -j 2 > ubc_test_pose.log 2>&1 &
+python tools/extract_meta_info.py --root_path /home/ubuntu/work/git/avatar/character_animation/UBC_fashion_video_dataset/train --dataset_name anyone
 ```
 
 Update lines in the training config file: 
